@@ -13,35 +13,24 @@
 # 6 12
 
 # Решение:
-n=(int(input("Введите число N элементов: ")))
-num_list_1=[]
+n, m = map(int, input('Введите количество элементов 1 и 2 набора чисел через "пробел": ').split())
+
+list_1 = []
+print('Введите первый набор чисел через "enter": ')
 for i in range(n):
-    num = int(input("Введите num: "))
-    num_list_1.append(num)
-print(num_list_1)
+    list_1.append(int(input()))
 
-
-m=(int(input("Введите число M элементов: ")))
-num_list_2 = []
+list_2 = []
+print('Введите второй набор чисел через "enter": ')
 for i in range(m):
-    num = int(input("Введите num: "))
-    num_list_2.append(num)
-print(num_list_2)
+    list_2.append(int(input()))
 
+uniq_1 = set(list_1)
+uniq_2 = set(list_2)
 
-num_list3 = num_list_1-num_list_2
-
-# print(num_list3)
-# for i in num_list3:
-#     if num_list3.count(i) > 1:
-#         print(i)
-
-checked_nums_list = []
-for i in num_list3:
-    if num_list3.count(i) > 1 and i not in checked_nums_list:
-        checked_nums_list.append(i)
-        print(i)
- 
+uniq_inter=uniq_1.intersection(uniq_2)
+print('Во введенных наборах встречаются числа: ', end='')
+print(*sorted(uniq_inter))
 
 # # 2. В фермерском хозяйстве в Карелии выращивают чернику. 
 # # Она растет на круглой грядке, причем кусты высажены только по окружности. 
@@ -63,11 +52,11 @@ for i in num_list3:
 # # 9
 
 # # Решение:
-# n = int( input( "Введите N кустов: " ) )
-# lis = [ int(x) for x in input( '-> ' ).split() ]
-# n = len(lis)
-# lis = lis + lis[:2]
-# ma = 0
-# for i in range(n):
-#     ma = max( ma, lis[i] + lis[i+1] + lis[i+2] )
-# print(F"Максимальное число ягод: {ma}")
+n = int( input( "Введите N кустов: " ) )
+lis = [ int(x) for x in input( '-> ' ).split() ]
+n = len(lis)
+lis = lis + lis[:2]
+ma = 0
+for i in range(n):
+    ma = max( ma, lis[i] + lis[i+1] + lis[i+2] )
+print(F"Максимальное число ягод: {ma}")
